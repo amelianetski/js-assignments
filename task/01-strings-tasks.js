@@ -1,11 +1,9 @@
-
 /** *****************************************************************************************
  *                                                                                          *
  * Plese read the following tutorial before implementing tasks:                             *
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String  *
  *                                                                                          *
  ********************************************************************************************/
-
 
 /**
  * Returns the result of concatenation of two strings.
@@ -20,8 +18,7 @@
  *   '',  'bb'  => 'bb'
  */
 export function concatenateStrings(value1, value2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return value1 + value2;
 }
 
 /**
@@ -37,7 +34,7 @@ export function concatenateStrings(value1, value2) {
  */
 export function getStringLength(value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -55,7 +52,7 @@ export function getStringLength(value) {
  */
 export function getStringFromTemplate(firstName, lastName) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -68,11 +65,10 @@ export function getStringFromTemplate(firstName, lastName) {
  *   'Hello, John Doe!' => 'John Doe'
  *   'Hello, Chuck Norris!' => 'Chuck Norris'
  */
-export function  extractNameFromTemplate(value) {
+export function extractNameFromTemplate(value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
-
 
 /**
  * Returns a first char of the given string.
@@ -86,7 +82,7 @@ export function  extractNameFromTemplate(value) {
  */
 export function getFirstChar(value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -102,7 +98,7 @@ export function getFirstChar(value) {
  */
 export function removeLeadingAndTrailingWhitespaces(value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -118,7 +114,7 @@ export function removeLeadingAndTrailingWhitespaces(value) {
  */
 export function repeatString(value, count) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -133,9 +129,9 @@ export function repeatString(value, count) {
  *   'I like legends', 'end' => 'I like legs',
  *   'ABABAB','BA' => 'ABAB'
  */
-export function removeFirstOccurrences(str, value)  {
+export function removeFirstOccurrences(str, value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -151,9 +147,8 @@ export function removeFirstOccurrences(str, value)  {
  */
 export function unbracketTag(str) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
-
 
 /**
  * Converts all characters of the specified string into the upper case
@@ -167,7 +162,7 @@ export function unbracketTag(str) {
  */
 export function convertToUpperCase(str) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -183,7 +178,7 @@ export function convertToUpperCase(str) {
  */
 export function extractEmails(str) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -211,9 +206,8 @@ export function extractEmails(str) {
  */
 export function getRectangleString(width, height) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
-
 
 /**
  * Encode specified string with ROT13 cipher
@@ -227,13 +221,13 @@ export function getRectangleString(width, height) {
  *   'hello' => 'uryyb'
  *   'Why did the chicken cross the road?' => 'Jul qvq gur puvpxra pebff gur ebnq?'
  *   'Gb trg gb gur bgure fvqr!' => 'To get to the other side!'
- *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' => 
+ *   'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz' =>
  *          'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm'
  *
  */
 export function encodeToRot13(str) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
 
 /**
@@ -251,9 +245,8 @@ export function encodeToRot13(str) {
  */
 export function isString(value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
-
 
 /**
  * Returns playid card id.
@@ -281,5 +274,5 @@ export function isString(value) {
  */
 export function getCardId(value) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  throw new Error("Not implemented");
 }
