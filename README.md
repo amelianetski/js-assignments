@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/amelianetski/js-assignments.svg?branch=master)](https://travis-ci.org/amelianetski/js-assignments)
 ![Hackage-Deps](https://img.shields.io/hackage-deps/v/lens.svg)
 [![Greenkeeper badge](https://badges.greenkeeper.io/amelianetski/js-assignments.svg)](https://greenkeeper.io/)
-[![GitHub release](https://img.shields.io/github/release/amelianetski/js-assignments.svg)](https://github.com/amelianetski/js-assignments/releases/latest)
+[![GitHub release] (https://img.shields.io/github/release/amelianetski/js-assignments.svg)](https://github.com/amelianetski/js-assignments/releases/latest)
 
 
 # [Brest IT Shark](https://it-shark.pro/)
