@@ -34,7 +34,7 @@ export function concatenateStrings(value1, value2) {
  */
 export function getStringLength(value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -52,7 +52,7 @@ export function getStringLength(value) {
  */
 export function getStringFromTemplate(firstName, lastName) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -67,7 +67,7 @@ export function getStringFromTemplate(firstName, lastName) {
  */
 export function extractNameFromTemplate(value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -82,7 +82,7 @@ export function extractNameFromTemplate(value) {
  */
 export function getFirstChar(value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -98,7 +98,7 @@ export function getFirstChar(value) {
  */
 export function removeLeadingAndTrailingWhitespaces(value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -114,7 +114,7 @@ export function removeLeadingAndTrailingWhitespaces(value) {
  */
 export function repeatString(value, count) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -131,7 +131,7 @@ export function repeatString(value, count) {
  */
 export function removeFirstOccurrences(str, value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -147,7 +147,7 @@ export function removeFirstOccurrences(str, value) {
  */
 export function unbracketTag(str) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -162,7 +162,7 @@ export function unbracketTag(str) {
  */
 export function convertToUpperCase(str) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -178,7 +178,7 @@ export function convertToUpperCase(str) {
  */
 export function extractEmails(str) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -206,7 +206,7 @@ export function extractEmails(str) {
  */
 export function getRectangleString(width, height) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -227,7 +227,7 @@ export function getRectangleString(width, height) {
  */
 export function encodeToRot13(str) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -245,7 +245,7 @@ export function encodeToRot13(str) {
  */
 export function isString(value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
 
 /**
@@ -274,5 +274,5 @@ export function isString(value) {
  */
 export function getCardId(value) {
   /* implement your code here */
-  throw new Error("Not implemented");
+  throw new Error('Not implemented');
 }
