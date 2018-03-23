@@ -1,4 +1,3 @@
-
 /** ******************************************************************************************
  *                                                                                          *
  * Plese read the following tutorial before implementing tasks:                             *
@@ -6,7 +5,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date    *
  *                                                                                          *
  ******************************************************************************************* */
-
 
 /**
  * Parses a rfc2822 string date representation into date value
@@ -21,8 +19,7 @@
  *    'Sun, 17 May 1998 03:00:00 GMT+01' => Date()
  */
 export function parseDataFromRfc2822(value) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return Date.parse(value);
 }
 
 /**
@@ -37,10 +34,8 @@ export function parseDataFromRfc2822(value) {
  *    '2016-01-19T08:07:37Z' => Date()
  */
 export function parseDataFromIso8601(value) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return Date.parse(value);
 }
-
 
 /**
  * Returns true if specified date is leap year and false otherwise
@@ -57,10 +52,15 @@ export function parseDataFromIso8601(value) {
  *    Date(2015,1,1)    => false
  */
 export function isLeapYear(date) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let year = date.getFullYear();
+  if (year % 4 === 0) {
+    if (year % 100 === 0) {
+      return year % 400 === 0 ? true : false;
+    }
+    return true;
+  }
+  return false;
 }
-
 
 /**
  * Returns the string represention of the timespan between two dates.
@@ -78,13 +78,31 @@ export function isLeapYear(date) {
  *    Date(2000,1,1,10,0,0),  Date(2000,1,1,15,20,10,453)   => "05:20:10.453"
  */
 export function timeSpanToString(startDate, endDate) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let hours = Math.abs(endDate.getHours() - startDate.getHours());
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  let minutes = Math.abs(endDate.getMinutes() - startDate.getMinutes());
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  let seconds = Math.abs(endDate.getSeconds() - startDate.getSeconds());
+  if (seconds < 10) {
+    seconds = `0${seconds}`;
+  }
+  let milliseconds = Math.abs(
+    endDate.getMilliseconds() - startDate.getMilliseconds()
+  );
+  if (milliseconds < 10) {
+    milliseconds = `00${milliseconds}`;
+  } else if (milliseconds < 100 && milliseconds > 10) {
+    milliseconds = `0${milliseconds}`;
+  }
+  return `${hours}:${minutes}:${seconds}.${milliseconds}`;
 }
 
-
 /**
- * Returns the angle (in radians) between the hands of an analog clock for the 
+ * Returns the angle (in radians) between the hands of an analog clock for the
  * specified Greenwich time.
  * If you have problem with solution please read: https://en.wikipedia.org/wiki/Clock_angle_problem
  *
@@ -98,6 +116,19 @@ export function timeSpanToString(startDate, endDate) {
  *    Date.UTC(2016,3,5,21, 0) => Math.PI/2
  */
 export function angleBetweenClockHands(date) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let newDate = new Date(date),
+    offset = new Date().getTimezoneOffset() / 60,
+    minutes = newDate.getMinutes(),
+    m = 6 * minutes,
+    h = newDate.getHours() > 12 ? newDate.getHours() - 12 : newDate.getHours(),
+    hours = 0.5 * (60 * (h + offset) + minutes);
+  let angleDeg = Math.abs(hours - m);
+  if (angleDeg > 180) {
+    angleDeg = 360 - angleDeg;
+  }
+  let angleRad = angleDeg * Math.PI / 180;
+  if (minutes === h + offset) {
+    angleRad = 0;
+  }
+  return angleRad;
 }
