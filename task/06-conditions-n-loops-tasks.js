@@ -1,4 +1,3 @@
-
 /** ************************************************************************************************
  *                                                                                                *
  * Plese read the following tutorial before implementing tasks:                                   *
@@ -6,7 +5,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Loops_and_iteration              *
  *                                                                                                *
  ************************************************************************************************ */
-
 
 /**
  * Returns the 'Fizz','Buzz' or an original number using the following rules:
@@ -29,10 +27,11 @@
  *
  */
 export function getFizzBuzz(num) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  if (num % 3 === 0 && num % 5 === 0) return 'FizzBuzz';
+  else if (num % 5 === 0) return 'Buzz';
+  else if (num % 3 === 0) return 'Fizz';
+  else return num;
 }
-
 
 /**
  * Returns the factorial of the specified integer n.
@@ -46,10 +45,11 @@ export function getFizzBuzz(num) {
  *   10 => 3628800
  */
 export function getFactorial(n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  if (n !== 1) {
+    return n * getFactorial(n - 1);
+  }
+  return n;
 }
-
 
 /**
  * Returns the sum of integer numbers between n1 and n2 (inclusive).
@@ -64,13 +64,15 @@ export function getFactorial(n) {
  *   -1,1  =>  0  ( = -1 + 0 + 1 )
  */
 export function getSumBetweenNumbers(n1, n2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let total = 0;
+  for (let i = n1; i <= n2; i++) {
+    total += i;
+  }
+  return total;
 }
 
-
 /**
- * Returns true, if a triangle can be built with the specified sides a,b,c and false 
+ * Returns true, if a triangle can be built with the specified sides a,b,c and false
  * in any other ways.
  *
  * @param {number} a
@@ -85,10 +87,11 @@ export function getSumBetweenNumbers(n1, n2) {
  *   10,10,10 =>  true
  */
 export function isTriangle(a, b, c) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let longestSide = a;
+  if (b > longestSide) longestSide = b;
+  if (c > longestSide) longestSide = c;
+  return longestSide < a + b + c - longestSide;
 }
-
 
 /**
  * Returns true, if two specified axis-aligned rectangles overlap, otherwise false.
@@ -123,10 +126,11 @@ export function isTriangle(a, b, c) {
  *
  */
 export function doRectanglesOverlap(rect1, rect2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return (
+    Math.abs(rect1.top - rect2.top) < Math.max(rect1.height, rect2.height) &&
+    Math.abs(rect1.left - rect2.left) < Math.max(rect1.width, rect2.width)
+  );
 }
-
 
 /**
  * Returns true, if point lies inside the circle, otherwise false.
@@ -155,10 +159,12 @@ export function doRectanglesOverlap(rect1, rect2) {
  *
  */
 export function isInsideCircle(circle, point) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return (
+    Math.pow(point.x - circle.center.x, 2) +
+      Math.pow(point.y - circle.center.y, 2) <
+    Math.pow(circle.radius, 2)
+  );
 }
-
 
 /**
  * Returns the first non repeated char in the specified strings otherwise returns null.
@@ -176,9 +182,8 @@ export function findFirstSingleChar(str) {
   throw new Error('Not implemented');
 }
 
-
 /**
- * Returns the string representation of math interval, specified by two points and 
+ * Returns the string representation of math interval, specified by two points and
  * include / exclude flags.
  * See the details: https://en.wikipedia.org/wiki/Interval_(mathematics)
  *
@@ -204,7 +209,6 @@ export function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Reverse the specified string (put all chars in reverse order)
  *
@@ -218,10 +222,11 @@ export function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
  * 'noon' => 'noon'
  */
 export function reverseString(str) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return str
+    .split('')
+    .reverse()
+    .join('');
 }
-
 
 /**
  * Reverse the specified integer number (put all digits in reverse order)
@@ -236,10 +241,11 @@ export function reverseString(str) {
  *   34143 => 34143
  */
 export function reverseInteger(num) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return +`${num}`
+    .split('')
+    .reverse()
+    .join('');
 }
-
 
 /**
  * Validates the CCN (credit card number) and return true if CCN is valid
@@ -262,10 +268,31 @@ export function reverseInteger(num) {
  *   4916123456789012 => false
  */
 export function isCreditCardNumber(ccn) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let arr = `${ccn}`.split('').reverse();
+  let first = arr
+    .reduce((acc, el, i) => {
+      if (i % 2 === 0) {
+        acc.push(el);
+      }
+      return acc;
+    }, [])
+    .reduce((acc, el) => +acc + +el);
+  let second = arr
+    .reduce((acc, el, i) => {
+      if (i % 2 !== 0) {
+        let sq = el * 2;
+        if (sq > 9) {
+          sq = sq - 9;
+          acc.push(sq);
+        } else {
+          acc.push(sq);
+        }
+      }
+      return acc;
+    }, [])
+    .reduce((acc, el) => +acc + +el);
+  return (first + second) % 10 === 0;
 }
-
 
 /**
  * Returns the digital root of integer:
@@ -282,10 +309,9 @@ export function isCreditCardNumber(ccn) {
  *   165536 (1+6+5+5+3+6 = 26,  2+6 = 8) => 8
  */
 export function getDigitalRoot(num) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let arr = `${num}`.split('').reduce((acc, el) => +acc + +el);
+  return arr > 9 ? `${arr}`.split('').reduce((acc, el) => +acc + +el) : arr;
 }
-
 
 /**
  * Returns true if the specified string has the balanced brackets and false otherwise.
@@ -312,7 +338,6 @@ export function isBracketsBalanced(str) {
   /* implement your code here */
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the human readable string of time period specified by the start and end time.
@@ -350,7 +375,6 @@ export function timespanToHumanString(startDate, endDate) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the string with n-ary (binary, ternary, etc, where n<=10) representation of
  * specified number.
@@ -376,7 +400,6 @@ export function toNaryString(num, n) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the commom directory path for specified array of full filenames.
  *
@@ -393,7 +416,6 @@ export function getCommonDirectoryPath(pathes) {
   /* implement your code here */
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the product of two specified matrixes.
@@ -417,7 +439,6 @@ export function getMatrixProduct(m1, m2) {
   /* implement your code here */
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the evaluation of the specified tic-tac-toe position.
