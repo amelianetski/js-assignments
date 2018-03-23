@@ -444,13 +444,12 @@ export function toStringList(arr) {
  *      { country: 'Russia',  city: 'Saint Petersburg' }
  */
 export function sortCitiesArray(arr) {
-  return arr.sort((a, b) => {
-    if (a.country < b.country) return -1;
-    if (a.country > b.country) return 1;
-    if (a.city < b.city) return -1;
-    if (a.city > b.city) return 1;
-    return 0;
-  });
+  return arr.sort(
+    (a, b) =>
+      a.country < b.country
+        ? -1
+        : a.country > b.country ? 1 : a.city < b.city ? -1 : 1
+  );
 }
 
 /**
@@ -472,8 +471,21 @@ export function sortCitiesArray(arr) {
  *           [0,0,0,0,1]]
  */
 export function getIdentityMatrix(n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return Array(n)
+    .fill()
+    .map((el, i) => {
+      return Array(n)
+        .fill(0)
+        .reduce((acc, elem, ind) => {
+          if (ind === i) {
+            acc.push(1);
+            return acc;
+          } else {
+            acc.push(elem);
+            return acc;
+          }
+        }, []);
+    });
 }
 
 /**
@@ -490,8 +502,10 @@ export function getIdentityMatrix(n) {
  *     3, 3   => [ 3 ]
  */
 export function getIntervalArray(start, end) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return [...Array(end - start + 1)].reduce(
+    (acc, el, i) => [...acc, i + start],
+    []
+  );
 }
 
 /**
@@ -558,8 +572,10 @@ export function group(array, keySelector, valueSelector) {
  *   ['one','two','three'], x=>x.split('')  =>   ['o','n','e','t','w','o','t','h','r','e','e']
  */
 export function selectMany(arr, childrenSelector) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return Array.from(arr, childrenSelector).reduce(
+    (acc, el) => acc.concat(el),
+    []
+  );
 }
 
 /**
