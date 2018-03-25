@@ -554,8 +554,14 @@ export function distinct(arr) {
  *   }
  */
 export function group(array, keySelector, valueSelector) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const arr = array.reduce((acc, el, i) => {
+    const key = keySelector(el),
+      value = valueSelector(el);
+    acc[key] = acc[key] ? [...acc[key], value] : [value];
+    return acc;
+  }, {});
+
+  return new Map(Object.entries(arr));
 }
 
 /**
@@ -591,8 +597,7 @@ export function selectMany(arr, childrenSelector) {
  *   [[[ 1, 2, 3]]], [ 0, 0, 1 ]      => 2        (arr[0][0][1])
  */
 export function getElementByIndexes(arr, indexes) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return indexes.reduce((acc, el) => acc[el], arr);
 }
 
 /**
