@@ -12,10 +12,15 @@
  *   'abcdefghijklmnop',  'lmnopqrstuvwxyz'  => 'abcdefghijklmnopqrstuvwxyz'
  */
 export function distinctLettersString(value1, value2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let str = value1 + value2;
+  const sortStr = str.split('').sort((a, b) => {
+    if (a < b) return -1;
+    if (a > b) return 1;
+    return 0;
+  });
+  const set = new Set(sortStr);
+  return [...set].join('');
 }
-
 
 /**
  * Takes a string with any characters.
