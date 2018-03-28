@@ -45,10 +45,7 @@ export function getFizzBuzz(num) {
  *   10 => 3628800
  */
 export function getFactorial(n) {
-  if (n !== 1) {
-    return n * getFactorial(n - 1);
-  }
-  return n;
+  return n !== 1 ? n * getFactorial(n - 1) : n;
 }
 
 /**
@@ -337,13 +334,13 @@ export function getDigitalRoot(num) {
  *   '' => true
  *   '[]'  => true
  *   '{}'  => true
- *   '()   => true
+ *   '()'   => true
  *   '[[]' => false
  *   ']['  => false
  *   '[[][][[]]]' => true
  *   '[[][]][' => false
  *   '{)' = false
- *   '{[(<{[]}>)]}' = true
+ *   '{[(<{[ ]}>)]}' = true
  */
 export function isBracketsBalanced(str) {
   /* implement your code here */
@@ -382,7 +379,6 @@ export function isBracketsBalanced(str) {
  *
  */
 export function timespanToHumanString(startDate, endDate) {
-  /* implement your code here */
   throw new Error('Not implemented');
 }
 
