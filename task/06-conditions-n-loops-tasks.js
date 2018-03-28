@@ -179,7 +179,16 @@ export function isInsideCircle(circle, point) {
  */
 export function findFirstSingleChar(str) {
   /* implement your code here */
-  throw new Error('Not implemented');
+  let result = '';
+  for (let i = 0; i < str.length; i++) {
+    if (str.indexOf(str[i]) === str.lastIndexOf(str[i])) {
+      result = str[i];
+      break;
+    } else {
+      result = null;
+    }
+  }
+  return result;
 }
 
 /**
@@ -205,8 +214,10 @@ export function findFirstSingleChar(str) {
  *
  */
 export function getIntervalString(a, b, isStartIncluded, isEndIncluded) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const leftBracket = isStartIncluded ? '[' : '(',
+    rightBracket = isEndIncluded ? ']' : ')',
+    points = a < b ? `${a}, ${b}` : `${b}, ${a}`;
+  return `${leftBracket}${points}${rightBracket}`;
 }
 
 /**

@@ -55,7 +55,6 @@ export function getJSON(obj) {
  *
  */
 export function fromJSON(proto, json) {
-  /* implement your code here */
   throw new Error('Not implemented');
 }
 
