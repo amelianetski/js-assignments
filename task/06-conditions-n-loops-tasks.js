@@ -158,7 +158,7 @@ export function doRectanglesOverlap(rect1, rect2) {
 export function isInsideCircle(circle, point) {
   return (
     Math.pow(point.x - circle.center.x, 2) +
-      Math.pow(point.y - circle.center.y, 2) <
+    Math.pow(point.y - circle.center.y, 2) <
     Math.pow(circle.radius, 2)
   );
 }
@@ -423,8 +423,12 @@ export function timespanToHumanString(startDate, endDate) {
  *    365, 10 => '365'
  */
 export function toNaryString(num, n) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let result = '';
+  for (let i = num; i >= 1;) {
+    result += i % n;
+    i = Math.floor(i / n);
+  }
+  return result.split('').reverse().join('');
 }
 
 /**
