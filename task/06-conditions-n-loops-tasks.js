@@ -462,8 +462,18 @@ export function toNaryString(num, n) {
  *   ['/web/favicon.ico', '/web-scripts/dump', '/webalizer/logs'] => '/'
  */
 export function getCommonDirectoryPath(pathes) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const arr = [];
+  for (let key of pathes) {
+    arr.push(key.slice(0, key.lastIndexOf('/') + 1));
+  }
+  if (arr.every(el => el[0] === '/')) {
+    if (arr.every(el => el === arr[0])) {
+      return arr[0];
+    }
+    return '/';
+  } else {
+    return '';
+  }
 }
 
 /**
