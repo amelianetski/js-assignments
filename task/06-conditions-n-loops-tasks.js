@@ -541,6 +541,22 @@ export function getMatrixProduct(m1, m2) {
  *
  */
 export function evaluateTicTacToePosition(position) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const arr = [
+    [position[0][0], position[0][1], position[0][2]],
+    [position[1][0], position[1][1], position[1][2]],
+    [position[2][0], position[2][1], position[2][2]],
+    [position[0][0], position[1][0], position[2][0]],
+    [position[0][1], position[1][1], position[2][1]],
+    [position[0][2], position[1][2], position[2][2]],
+    [position[0][0], position[1][1], position[2][2]],
+    [position[0][2], position[1][1], position[2][0]]
+  ]; //all positions to win
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].every(el => el === 'X')) {
+      return 'X';
+    } else if (arr[i].every(el => el === '0')) {
+      return '0';
+    }
+  }
+  return undefined;
 }
