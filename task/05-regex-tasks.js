@@ -1,11 +1,9 @@
-
 /** ******************************************************************************************
  *                                                                                          *
  * Plese read the following tutorial before implementing tasks:                             *
  * https://developer.mozilla.org/en/docs/Web/JavaScript/Guide/Regular_Expressions           *
  *                                                                                          *
  ******************************************************************************************* */
-
 
 /**
  * Returns the regexp that matches a GUID string representation
@@ -30,10 +28,8 @@
  * @return {RegExp}
  */
 export function getRegexForGuid() {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return /^{[a-fA-F0-9]{8}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{4}-[a-fA-F0-9]{12}}/;
 }
-
 
 /**
  * Returns the regexp that matches all the strings from first column
@@ -53,10 +49,8 @@ export function getRegexForGuid() {
  *
  */
 export function getRegexForPitSpot() {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return /p.t/;
 }
-
 
 /**
  * Returns the regexp that matches all IPv4 strings in
@@ -73,10 +67,9 @@ export function getRegexForPitSpot() {
  * @return {RegExp}
  */
 export function getRegexForIPv4() {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const s = '(25[0-5]|2[0-4]\\d|[01]?\\d{1,2})';
+  return new RegExp(`^${s}\\.${s}\\.${s}\\.${s}$`);
 }
-
 
 /**
  * Returns the regexp that matches all SSN (Social Security Number) codes in
@@ -93,10 +86,9 @@ export function getRegexForIPv4() {
  * @return {RegExp}
  */
 export function getRegexForSSN() {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const s = '(?=0*[1-9]+0*)\\d';
+  return new RegExp(`${s}{3}-${s}{2}-${s}{4}`);
 }
-
 
 /**
  * Returns the password validator regex.
@@ -119,6 +111,6 @@ export function getRegexForSSN() {
  *   'Pa55'.match(validator) => false
  */
 export function getPasswordValidator(minLength) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const s = '[A-Za-z0-9]';
+  return new RegExp(`^(?=${s}*[a-z])(?=${s}*[A-Z])(?=${s}*\\d)${s}{${minLength},}$`);
 }
