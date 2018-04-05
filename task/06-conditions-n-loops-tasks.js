@@ -158,7 +158,7 @@ export function doRectanglesOverlap(rect1, rect2) {
 export function isInsideCircle(circle, point) {
   return (
     Math.pow(point.x - circle.center.x, 2) +
-    Math.pow(point.y - circle.center.y, 2) <
+      Math.pow(point.y - circle.center.y, 2) <
     Math.pow(circle.radius, 2)
   );
 }
@@ -399,7 +399,22 @@ export function isBracketsBalanced(str) {
  *
  */
 export function timespanToHumanString(startDate, endDate) {
-  throw new Error('Not implemented');
+  let diff = endDate.getTime() - startDate.getTime(),
+    s = 1000, // second
+    m = s * 60, // minute
+    h = m * 60, // hour
+    d = h * 24; // day
+  if (diff <= 45 * s) return 'a few seconds ago';
+  if (diff <= 90 * s) return 'a minute ago';
+  if (diff <= 45 * m) return `${Math.round((diff - 1) / m)} minutes ago`;
+  if (diff <= 90 * m) return 'an hour ago';
+  if (diff <= 22 * h) return `${Math.round((diff - 1) / h)} hours ago`;
+  if (diff <= 36 * h) return 'a day ago';
+  if (diff <= 25 * d) return `${Math.round((diff - 1) / d)} days ago`;
+  if (diff <= 45 * d) return 'a month ago';
+  if (diff <= 345 * d) return `${Math.round(diff / 30 / d)} months ago`;
+  if (diff <= 545 * d) return 'a year ago';
+  return `${Math.round(diff / 365 / d)} years ago`;
 }
 
 /**
@@ -424,11 +439,14 @@ export function timespanToHumanString(startDate, endDate) {
  */
 export function toNaryString(num, n) {
   let result = '';
-  for (let i = num; i >= 1;) {
+  for (let i = num; i >= 1; ) {
     result += i % n;
     i = Math.floor(i / n);
   }
-  return result.split('').reverse().join('');
+  return result
+    .split('')
+    .reverse()
+    .join('');
 }
 
 /**
