@@ -495,8 +495,19 @@ export function getCommonDirectoryPath(pathes) {
  *
  */
 export function getMatrixProduct(m1, m2) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const rowsA = m1.length,
+    rowsB = m2.length,
+    colsB = m2[0].length,
+    m3 = [];
+  for (let i = 0; i < rowsA; i++) m3[i] = [];
+  for (let k = 0; k < colsB; k++) {
+    for (let i = 0; i < rowsA; i++) {
+      let t = 0;
+      for (let j = 0; j < rowsB; j++) t += m1[i][j] * m2[j][k];
+      m3[i][k] = t;
+    }
+  }
+  return m3;
 }
 
 /**
