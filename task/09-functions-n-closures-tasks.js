@@ -1,4 +1,3 @@
-
 /** ********************************************************************************************
  *                                                                                            *
  * Plese read the following tutorial before implementing tasks:                               *
@@ -8,7 +7,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures                           *
  *                                                                                            *
  ********************************************************************************************* */
-
 
 /**
  * Returns the functions composition of two specified functions f(x) and g(x).
@@ -25,10 +23,8 @@
  *
  */
 export function getComposition(f, g) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return x => f(g(x));
 }
-
 
 /**
  * Returns the math power function with the specified exponent
@@ -51,7 +47,6 @@ export function getPowerFunction(exponent) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the polynom function of one argument based on specified coefficients.
  * See: https://en.wikipedia.org/wiki/Polynomial#Definition
@@ -69,7 +64,6 @@ export function getPolynom() {
   /* implement your code here */
   throw new Error('Not implemented');
 }
-
 
 /**
  * Memoizes passed function and returns function
@@ -90,7 +84,6 @@ export function memoize(func) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the function trying to call the passed function and if it throws,
  * retrying it specified number of attempts.
@@ -107,10 +100,10 @@ export function memoize(func) {
  * retryer() => 2
  */
 export function retry(func, attempts) {
+  
   /* implement your code here */
   throw new Error('Not implemented');
 }
-
 
 /**
  * Returns the logging wrapper for the specified method,
@@ -140,7 +133,6 @@ export function logger(func, logFunc) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Return the function with partial applied arguments
  *
@@ -159,9 +151,8 @@ export function partialUsingArguments(fn) {
   throw new Error('Not implemented');
 }
 
-
 /**
- * Returns the id generator function that returns next integer starting from specified 
+ * Returns the id generator function that returns next integer starting from specified
  * number every time when invoking.
  *
  * @param {Number} startFrom
@@ -178,6 +169,6 @@ export function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 export function getIdGeneratorFunction(startFrom) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let id = startFrom;
+  return () => id++;
 }

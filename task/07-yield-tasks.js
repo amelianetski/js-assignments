@@ -1,4 +1,3 @@
-
 /** ******************************************************************************************
  *                                                                                          *
  * Plese read the following tutorial before implementing tasks:                             *
@@ -6,7 +5,6 @@
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/yield        *
  *                                                                                          *
  ****************************************************************************************** */
-
 
 /**
  * Returns the lines sequence of "99 Bottles of Beer" song:
@@ -35,7 +33,6 @@ export function* get99BottlesOfBeer() {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Returns the Fibonacci sequence:
  *   0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, ...
@@ -48,7 +45,6 @@ export function* get99BottlesOfBeer() {
 export function* getFibonacciSequence() {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Traverses a tree using the depth-first strategy
@@ -84,7 +80,6 @@ export function* depthTraversalTree(root) {
   throw new Error('Not implemented');
 }
 
-
 /**
  * Traverses a tree using the breadth-first strategy
  * See details: https://en.wikipedia.org/wiki/Breadth-first_search
@@ -109,7 +104,6 @@ export function* depthTraversalTree(root) {
 export function* breadthTraversalTree(root) {
   throw new Error('Not implemented');
 }
-
 
 /**
  * Merges two yield-style sorted sequences into the one sorted sequence.

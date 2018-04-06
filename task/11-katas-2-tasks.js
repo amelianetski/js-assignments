@@ -143,7 +143,7 @@ export function getPokerHandRank(hand) {
  *    '|             |\n'+              '+-----+\n'           '+-------------+\n'
  *    '+-------------+\n'
  */
-export function* getFigureRectangles(figure) {
+export function* getFigureRectangles(figure) { 
   /* implement your code here */
   throw new Error('Not implemented');
 }
