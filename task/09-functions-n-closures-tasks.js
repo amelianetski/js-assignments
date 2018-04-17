@@ -43,8 +43,7 @@ export function getComposition(f, g) {
  *
  */
 export function getPowerFunction(exponent) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return x => Math.pow(x, exponent);
 }
 
 /**
@@ -100,7 +99,6 @@ export function memoize(func) {
  * retryer() => 2
  */
 export function retry(func, attempts) {
-  
   /* implement your code here */
   throw new Error('Not implemented');
 }
