@@ -60,8 +60,15 @@ export function getPowerFunction(exponent) {
  *   getPolynom()      => null
  */
 export function getPolynom() {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const args = arguments;
+  if (!args.length) return null;
+  return x => {
+    let result = 0;
+    for (let i = 0; i < args.length; i++) {
+      result += args[i] * Math.pow(x, args.length - i - 1);
+    }
+    return result;
+  };
 }
 
 /**
@@ -79,8 +86,8 @@ export function getPolynom() {
  *   memoizer() => the same random number  (next run, returns the previous cached result)
  */
 export function memoize(func) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const result = func();
+  return () => result;
 }
 
 /**
@@ -99,8 +106,15 @@ export function memoize(func) {
  * retryer() => 2
  */
 export function retry(func, attempts) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return function() {
+    for (let i = 0; i <= attempts; i++) {
+      try {
+        return func();
+      } catch (err) {
+        console.error(err);
+      }
+    }
+  };
 }
 
 /**
@@ -127,8 +141,16 @@ export function retry(func, attempts) {
  *
  */
 export function logger(func, logFunc) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  return function() {
+    const str = `${func.name}(${JSON.stringify(Array.from(arguments)).slice(
+      1,
+      -1
+    )}) `;
+    logFunc(str + 'starts');
+    const result = func.apply(null, arguments);
+    logFunc(str + 'ends');
+    return result;
+  };
 }
 
 /**
@@ -145,8 +167,10 @@ export function logger(func, logFunc) {
  *   partialUsingArguments(fn, 'a','b','c','d')() => 'abcd'
  */
 export function partialUsingArguments(fn) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const args = Array.from(arguments).slice(1);
+  return function() {
+    return fn.apply(null, args.concat(Array.from(arguments)));
+  };
 }
 
 /**
@@ -167,6 +191,5 @@ export function partialUsingArguments(fn) {
  *   getId10() => 11
  */
 export function getIdGeneratorFunction(startFrom) {
-  let id = startFrom;
-  return () => id++;
+  return () => startFrom++;
 }
