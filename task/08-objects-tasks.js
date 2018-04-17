@@ -108,40 +108,106 @@ export function fromJSON(proto, json) {
  *
  *  For more examples see unit tests.
  */
+const ERROR = [
+  'Element, id and pseudo-element should not occur more then one time inside the selector...',
+  'Selector parts should be arranged in the following order: element, id, class, attribute, pseudo-class, pseudo-element'
+];
+
+function selectorCreater(combine = '') {
+  const selectors = {
+    element: '',
+    id: '',
+    class: '',
+    attr: '',
+    pseudoClass: '',
+    pseudoElement: ''
+  };
+  function checkOrder(currentPart) {
+    let b = false;
+    for (let i in selectors) {
+      if (selectors.hasOwnProperty(i)) {
+        if (b && selectors[i]) throw new Error(ERROR[1]);
+        else if (!b && i === currentPart) b = true;
+      }
+    }
+  }
+  this.element = function(value) {
+    if (selectors.element) {
+      throw new Error(ERROR[0]);
+    }
+    checkOrder('element');
+    selectors.element = value;
+    return this;
+  };
+  this.id = function(value) {
+    if (selectors.id) {
+      throw new Error(ERROR[0]);
+    }
+    checkOrder('id');
+    selectors.id = `#${value}`;
+    return this;
+  };
+  this.class = function(value) {
+    checkOrder('class');
+    selectors.class += `.${value}`;
+    return this;
+  };
+  this.attr = function(value) {
+    checkOrder('attr');
+    selectors.attr = `[${value}]`;
+    return this;
+  };
+  this.pseudoClass = function(value) {
+    checkOrder('pseudoClass');
+    selectors.pseudoClass += `:${value}`;
+    return this;
+  };
+  this.pseudoElement = function(value) {
+    if (selectors.pseudoElement) {
+      throw new Error(ERROR[0]);
+    }
+    checkOrder('pseudoElement');
+    selectors.pseudoElement = `::${value}`;
+    return this;
+  };
+  this.stringify = function() {
+    let result = '';
+    for (let key in selectors) {
+      if (selectors.hasOwnProperty(key)) {
+        result += selectors[key];
+      }
+    }
+    return combine + result;
+  };
+}
 
 export const cssSelectorBuilder = {
   element(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater().element(value);
   },
 
   id(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater().id(value);
   },
 
   class(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater().class(value);
   },
 
   attr(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater().attr(value);
   },
 
   pseudoClass(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater().pseudoClass(value);
   },
 
   pseudoElement(value) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater().pseudoElement(value);
   },
-
   combine(selector1, combinator, selector2) {
-    /* implement your code here */
-    throw new Error('Not implemented');
+    return new selectorCreater(
+      `${selector1.stringify()} ${combinator} ${selector2.stringify()}`
+    );
   }
 };
