@@ -32,12 +32,16 @@
 export function* get99BottlesOfBeer() {
   for (let b = 99; b >= 0; b--) {
     if (b !== 0) {
-      yield `${b} bottle${b > 1 ? 's' : ''} of beer on the wall, ${b} bottle${b > 1 ? 's' : ''} of beer.`
-      yield `Take one down and pass it around, ${b - 1 ? b - 1 : 'no more'} bottle${b - 1 === 1 ? '' : 's'} of beer on the wall.`
+      yield `${b} bottle${b > 1 ? 's' : ''} of beer on the wall, ${b} bottle${
+        b > 1 ? 's' : ''
+      } of beer.`;
+      yield `Take one down and pass it around, ${
+        b - 1 ? b - 1 : 'no more'
+      } bottle${b - 1 === 1 ? '' : 's'} of beer on the wall.`;
     }
   }
-  yield 'No more bottles of beer on the wall, no more bottles of beer.'
-  yield 'Go to the store and buy some more, 99 bottles of beer on the wall.'
+  yield 'No more bottles of beer on the wall, no more bottles of beer.';
+  yield 'Go to the store and buy some more, 99 bottles of beer on the wall.';
 }
 
 /**
