@@ -35,8 +35,17 @@ export function distinctLettersString(value1, value2) {
  */
 
 export function lowerLetters(value) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  const arr = value.split('').sort();
+  let result = [];
+  arr.forEach(el => {
+    if (el.charCodeAt() >= 97 && el.charCodeAt() <= 122) {
+      result = [...result, el];
+    }
+  });
+  return result.reduce((acc, el) => {
+    acc[el] = (acc[el] || 0) + 1;
+    return acc;
+  }, {});
 }
 
 /**
