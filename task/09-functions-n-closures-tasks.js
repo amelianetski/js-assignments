@@ -111,7 +111,7 @@ export function retry(func, attempts) {
       try {
         return func();
       } catch (err) {
-        console.error(err);
+        console.warn(err);
       }
     }
   };
