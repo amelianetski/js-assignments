@@ -61,14 +61,38 @@ export function lowerLetters(value) {
  * @return {string}
  *
  * @example
- *    'a clash if KINGS', 'a an the of'  =>  'A Clash of Kings'
+ *    'a clash of KINGS', 'a an the of'  =>  'A Clash of Kings'
  *    'THE WIND IN THE WILLOWS', 'The In'  => 'The Wind in the Willows'
  *    'the quick brown fox'  => 'The Quick Brown Fox'
  */
 
 export function titleCaseConvert(title, minorWords) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  var answer = [];
+  if (minorWords) {
+    minorWords = minorWords.toLowerCase();
+  } else {
+    minorWords = '';
+  }
+  title = title.toLowerCase().split(' ');
+
+  title.forEach(function(word, index, array) {
+    if (index === 0) {
+      answer.push(capitalizeFirst(word));
+    } else if (minorWords.indexOf(word) !== -1) {
+      answer.push(word);
+    } else {
+      answer.push(capitalizeFirst(word));
+    }
+  });
+
+  function capitalizeFirst(arg) {
+    arg = arg.split('');
+    arg[0] = arg[0].toUpperCase();
+    arg = arg.join('');
+    return arg;
+  }
+
+  return answer.join(' ');
 }
 
 /**
@@ -89,6 +113,26 @@ export function titleCaseConvert(title, minorWords) {
  */
 
 export function calcRPN(expr) {
-  /* implement your code here */
-  throw new Error('Not implemented');
+  let stack = expr.split(' ');
+
+  for (let i = 0; i < stack.length; ) {
+    let val = stack[i];
+
+    if (val === '+') {
+      stack.splice(i - 2, 3, +stack[i - 2] + +stack[i - 1]);
+      i -= 2;
+    } else if (val === '-') {
+      stack.splice(i - 2, 3, +stack[i - 2] - +stack[i - 1]);
+      i -= 2;
+    } else if (val === '*') {
+      stack.splice(i - 2, 3, +stack[i - 2] * +stack[i - 1]);
+      i -= 2;
+    } else if (val === '/') {
+      stack.splice(i - 2, 3, +stack[i - 2] / +stack[i - 1]);
+      i -= 2;
+    }
+    i++;
+  }
+
+  return stack[stack.length - 1];
 }
